@@ -1,0 +1,40 @@
+[user]
+name = Tudor Achim
+email = t.achim@gmail.com
+
+[alias]
+lf = ls-files
+st = status
+cp = cherry-pick
+ci = commit -v
+cia = commit -va
+ciam = commit -v --amend
+sh = log --stat -n 1
+logs = log --stat
+d = diff
+dk = diff --cached
+diffs = diff --stat
+erase = !sh -c 'git rebase --onto $0^ $0 HEAD'
+head = log -n 1 --pretty=format:%h
+b = branch -v
+ba = branch -av
+co = checkout
+zlog = log --pretty=format:"%h%x09%an%x09%ad%x09%s"
+tree = log --graph --decorate --pretty=oneline --abbrev-commit
+#[commit]
+  #template = /home/tudor/.vim/git-commit-template
+[branch]
+	autosetuprebase = always
+[color]
+	ui = true
+[push]
+	default = current
+[pull]
+	rebase = true
+[core]
+	attributesfile = /home/tudor/.gitattributes
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
