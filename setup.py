@@ -15,3 +15,9 @@ for f in os.listdir('.'):
             print('Failed to remove', f)
     print('linking', f)
     os.system('ln -s ~/w/env/%s ~/%s' % (f, f))
+
+with open(os.path.join(HOME, '.bashrc'), 'a') as f:
+    print('source ~/.bashrc_env', file=f)
+
+with open(os.path.join(HOME, '.bash_profile'), 'w') as f:
+    print('source ~/.bashrc', file=f)
