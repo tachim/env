@@ -1,10 +1,10 @@
 [user]
 name = Tudor Achim
-email = t.achim@gmail.com
 
 [alias]
 lf = ls-files
 st = status
+rfl = reflog --date=local
 cp = cherry-pick
 ci = commit -v
 cia = commit -va
@@ -19,7 +19,7 @@ head = log -n 1 --pretty=format:%h
 b = branch -v
 ba = branch -av
 co = checkout
-zlog = log --pretty=format:"%h%x09%an%x09%ad%x09%s"
+zlog = log --graph --all --decorate --pretty=format:'%C(auto)%h - (%ar) %s %d'
 tree = log --graph --decorate --pretty=oneline --abbrev-commit
 #[commit]
   #template = /home/tudor/.vim/git-commit-template
@@ -38,3 +38,9 @@ tree = log --graph --decorate --pretty=oneline --abbrev-commit
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
